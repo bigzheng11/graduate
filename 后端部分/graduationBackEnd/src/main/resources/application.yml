@@ -1,0 +1,35 @@
+server:
+  port: 8081  #端口号
+  servlet:
+    context-path: /  #上下文路径
+
+#配置数据源
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/graduate?useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&allowMultiQueries=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: WZ1446982638
+  mvc:
+    view:
+      prefix: /     #Springboot 支持JSP ,配置JSP的视图解析器 前缀
+      suffix: .jsp   #Springboot 支持JSP ,配置JSP的视图解析器 后缀
+  banner:
+    location: static/banner.txt
+  #腾讯云存储的配置项
+  tengxun:
+    accessKey: AKIDwJVVIrGbjbjR5rV6YrrtgHgsqjPuEKck
+    secretKey: 10slYBbt02veDapvrfKSQE2hDRf1EPXX
+    bucket: ap-nanjing
+    bucketName: testdemo01-1307738235
+    path: https://testdemo01-1307738235.cos.ap-nanjing.myqcloud.com
+    #上传文件前缀路径(eg:/images/)
+    #spring.qcloud.prefix=/images/
+    qianzui: /
+
+#mybatis配置
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.boot.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

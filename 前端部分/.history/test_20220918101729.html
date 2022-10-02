@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>测试</title>
+        <style>
+            .txtb span::before {
+                content: attr(data-placeholder);
+                /* 目前仅支持伪元素的content属性 */
+                /* 用来「获取」选择到的某一个HTML属性值 */
+                position: absolute;
+                top: 50%;
+                left: 5px;
+                color: #adadad;
+                transform: translateY(-50%);
+                transition: 0.5s;
+            }
+            p::before {
+                content: attr(test-property) "----";
+            }
+        </style>
+    </head>
+    <body>
+        <span data-placeholder="Useranme">阿松大</span>
+        <hr />
+        <p test-property="Hello">world</p>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<template>
+   <div class="container"></div>
+</template>
+
+<script>
+export default {
+   data() {
+      return {};
+   },
+
+   created() {
+    this
+   },
+
+   methods: {},
+
+   components: {},
+};
+</script>
+
+<style scoped>
+</style>
+
+<!-- 
+axios:
+
+     axios
+   .get("https://autumnfish.cn/api/joke/list?num=3") //获得三个笑话
+   .then(function (response) {
+   console.log(response);
+ });
+ -->
