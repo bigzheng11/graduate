@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/interest")
 public class InterestController {
-
     @Autowired
     private InterestService interestService;
     @Autowired
@@ -21,6 +20,8 @@ public class InterestController {
     private VideoService videoService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private MessageService messageService;
 
     //获取最喜欢的前8个类型
     @GetMapping("/topSixInterest/{userID}")
@@ -53,6 +54,20 @@ public class InterestController {
 
                 User user = userService.getUserByUserId(RecommendGoodsListTemp.get(j).getUserID());
                 RecommendGoodsListTemp.get(j).setUser(user);
+
+                List<Message> messageList = messageService.getAllMessage(RecommendGoodsListTemp.get(j).getGoodsID());
+                for (int k = 0; k < messageList.size(); k++) {
+                    User user2 = userService.getUserByUserId(messageList.get(k).getUserID());
+                    messageList.get(k).setUser(user2);
+                }
+
+
+                RecommendGoodsListTemp.get(j).setMessagesList(messageList);
+
+
+
+
+
             }
             //添加进returnList中
            returnList.addAll(RecommendGoodsListTemp);

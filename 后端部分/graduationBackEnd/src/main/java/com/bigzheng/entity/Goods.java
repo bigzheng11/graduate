@@ -22,4 +22,6 @@ public class Goods {
     private User user;
     private int n;
     private int price;
+    private List<Message> messagesList=new ArrayList<>();
+
 }
