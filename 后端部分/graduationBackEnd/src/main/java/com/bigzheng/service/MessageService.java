@@ -1,6 +1,9 @@
 package com.bigzheng.service;
 
+import com.bigzheng.common.R;
 import com.bigzheng.entity.Message;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -14,5 +17,8 @@ public interface MessageService {
 
     //「修改」修改留言点赞数
     int updateFavour(Message message);
+
+    // 「新增」 新增留言
+    int addMessage(Message message);
 
 }

@@ -16,16 +16,12 @@ spring:
       suffix: .jsp   #Springboot 支持JSP ,配置JSP的视图解析器 后缀
   banner:
     location: static/banner.txt
-  #腾讯云存储的配置项
-  tengxun:
-    accessKey: AKIDwJVVIrGbjbjR5rV6YrrtgHgsqjPuEKck
-    secretKey: 10slYBbt02veDapvrfKSQE2hDRf1EPXX
-    bucket: ap-nanjing
-    bucketName: testdemo01-1307738235
-    path: https://testdemo01-1307738235.cos.ap-nanjing.myqcloud.com
-    #上传文件前缀路径(eg:/images/)
-    #spring.qcloud.prefix=/images/
-    qianzui: /
+
+
+  # 腾讯云地址
+tencent:
+  path: https://testdemo01-1307738235.cos.ap-nanjing.myqcloud.com/
+
 
 #mybatis配置
 mybatis:

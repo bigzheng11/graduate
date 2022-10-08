@@ -1,5 +1,6 @@
 package com.bigzheng.service.Impl;
 
+import com.bigzheng.common.R;
 import com.bigzheng.entity.Message;
 import com.bigzheng.mapper.MessageMapper;
 import com.bigzheng.service.MessageService;
@@ -22,5 +23,10 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public int updateFavour(Message message) {
         return messageMapper.updateFavour(message);
+    }
+
+    @Override
+    public int addMessage(Message message) {
+        return messageMapper.addMessage(message);
     }
 }

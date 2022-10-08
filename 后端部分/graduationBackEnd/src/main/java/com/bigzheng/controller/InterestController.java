@@ -1,4 +1,5 @@
 package com.bigzheng.controller;
+import com.bigzheng.common.R;
 import com.bigzheng.entity.*;
 import com.bigzheng.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class InterestController {
             //搜索「指定个数」,指定分类的商品
             n = Math.round((float)interestList.get(i).getGrade()/(float)totalScore*10);
             Goods goodsParameter=new Goods();
-            goodsParameter.setGoodsClassify(interestList.get(i).getGoodsclassify());
+            goodsParameter.setGoodsClassify(interestList.get(i).getGoodsClassify());
             goodsParameter.setN(n);
             List<Goods> RecommendGoodsListTemp= goodsService.getRecommendGoods(goodsParameter);
             //商品添加图片和视频
@@ -57,17 +58,10 @@ public class InterestController {
 
                 List<Message> messageList = messageService.getAllMessage(RecommendGoodsListTemp.get(j).getGoodsID());
                 for (int k = 0; k < messageList.size(); k++) {
-                    User user2 = userService.getUserByUserId(messageList.get(k).getUserID());
+                        User user2 = userService.getUserByUserId(messageList.get(k).getUserID());
                     messageList.get(k).setUser(user2);
                 }
-
-
                 RecommendGoodsListTemp.get(j).setMessagesList(messageList);
-
-
-
-
-
             }
             //添加进returnList中
            returnList.addAll(RecommendGoodsListTemp);
@@ -76,5 +70,23 @@ public class InterestController {
         Collections.shuffle(returnList);
         return returnList;
     }
+
+    //「更新」激励加分-根据userID和goodsClassify,对grade更新
+    @PostMapping("/update")
+    public R updateGrade(Interest interest) {
+        interestService.updateGrade(interest);
+        return R.ok();
+    }
+
+    //获取最喜欢的前8个类型
+    @GetMapping("/backstage/{userID}")
+    public List<Interest>  backstageSelectByUserID(@PathVariable Long userID){
+      List<Interest>  interestList=interestService.topSixInterest(userID);
+      return interestList;
+
+
+    }
+
+
 }
 

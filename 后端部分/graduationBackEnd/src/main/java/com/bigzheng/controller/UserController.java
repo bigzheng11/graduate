@@ -4,6 +4,12 @@ import com.bigzheng.common.R;
 import com.bigzheng.common.ResultCode;
 import com.bigzheng.entity.User;
 import com.bigzheng.service.UserService;
+import com.qcloud.cos.COSClient;
+import com.qcloud.cos.ClientConfig;
+import com.qcloud.cos.auth.BasicCOSCredentials;
+import com.qcloud.cos.auth.COSCredentials;
+import com.qcloud.cos.http.HttpProtocol;
+import com.qcloud.cos.region.Region;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,10 +47,6 @@ public class UserController {
     //「登录」根据userID和password判断是否正确,正确则返回所有信息
     @PostMapping("/login")
     public R login(User user){
-        System.out.println("=========================================");
-        System.out.println(user);
-        System.out.println(user.getUserID());
-        System.out.println("=========================================");
 
         User userinfo =  userService.getUserByUserId(user.getUserID());
         if(userinfo!=null){
@@ -75,9 +77,9 @@ public class UserController {
     //「更新」根据user更新用户信息
     @PostMapping("/update")
     public R updateUser(User user){
-        System.out.println("==============================");
-        System.out.println(user);
-        System.out.println("==============================");
+        System.out.println("===============================");
+        System.out.println("user"+user);
+        System.out.println("===============================");
         int i = userService.updateUser(user);
         if(i>0){
             return R.ok();

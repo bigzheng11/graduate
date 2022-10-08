@@ -21,5 +21,4 @@ public interface UserMapper {
     //「更新」根据user更新用户信息
     @Update("update `user` set password=#{password},userName=#{userName},userImg=#{userImg} where userID=#{userID}")
     public int updateUser(User user);
-
 }

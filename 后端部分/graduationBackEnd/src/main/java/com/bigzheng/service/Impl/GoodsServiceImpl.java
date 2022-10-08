@@ -26,4 +26,14 @@ public class GoodsServiceImpl implements GoodsService {
     public List<Goods> getRecommendGoods(Goods goodsParameter) {
         return goodsMapper.getRecommendGoods(goodsParameter);
     }
+
+    @Override
+    public String addGoodsModel(Long userID) {
+    return goodsMapper.selectNewId();
+    }
+
+    @Override
+    public String selectNewId() {
+        return goodsMapper.selectNewId();
+    }
 }

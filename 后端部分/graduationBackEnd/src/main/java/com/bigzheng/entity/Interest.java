@@ -9,7 +9,7 @@ import lombok.*;
 public class Interest  {
     private Long interestID;
     private Long userID;
-    private Integer goodsclassify;
+    private Integer goodsClassify;
     private Integer grade;
 
 }

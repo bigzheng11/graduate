@@ -22,4 +22,10 @@ public class InterestServiceImpl implements InterestService {
     public List<Interest> topSixInterest(Long userID) {
         return interestMapper.topSixInterest(userID);
     }
+
+    //「更新」激励加分-根据userID和goodsClassify,对grade更新
+    @Override
+    public int updateGrade(Interest interest) {
+        return interestMapper.updateGrade(interest);
+    }
 }

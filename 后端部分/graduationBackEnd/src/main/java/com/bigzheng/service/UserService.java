@@ -12,4 +12,8 @@ public interface UserService {
 
     //「更新」根据user更新用户信息
     public int updateUser(User user);
+
+    //图片上传
+    Integer insertPhoto(User s);
+
 }

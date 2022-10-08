@@ -30,4 +30,14 @@ public class UserServiceImpl implements UserService {
     public int updateUser(User user) {
         return userMapper.updateUser(user);
     }
+
+    @Override
+    public Integer insertPhoto(User s) {
+        return null;
+    }
+
+    //图片上传
+//    public Integer insertPhoto(User s){
+//        return userMapper.insertPhoto(s);
+//    }
 }

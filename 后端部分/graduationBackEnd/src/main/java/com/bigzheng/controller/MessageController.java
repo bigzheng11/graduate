@@ -35,6 +35,13 @@ public class MessageController {
         return R.ok();
     }
 
+    // 「新增」 新增留言
+    @PostMapping("/add")
+    public R addMessage(Message message) {
+        messageService.addMessage(message);
+        return R.ok();
+    }
+
 
 
 

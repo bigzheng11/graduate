@@ -38,4 +38,11 @@ public class AddressController {
     }
 
 
+    //    测试项
+    @PostMapping("/test")
+    public void test(@PathVariable Long userID){
+        System.out.println();
+    }
+
+
 }
