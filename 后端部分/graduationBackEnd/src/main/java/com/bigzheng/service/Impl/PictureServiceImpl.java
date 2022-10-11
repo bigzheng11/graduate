@@ -15,4 +15,9 @@ public class PictureServiceImpl implements PictureService {
     public List<Picture> getAllPicture(Long goodsID) {
         return pictureMapper.getAllPicture(goodsID);
     }
+
+    @Override
+    public int addPicture(Picture picture) {
+        return pictureMapper.addPicture(picture);
+    }
 }

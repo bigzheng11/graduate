@@ -13,6 +13,8 @@ import com.qcloud.cos.region.Region;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -87,6 +89,14 @@ public class UserController {
             return R.error(ResultCode.DATA_EXEC_WRONG,"用户更新失败");
         }
     }
+
+    // 「☢ -后台」查询所有用户
+    @GetMapping("/backstageselectall")
+    public List<User> backstageSelectAll() {
+        List<User> userList = userService.backstageSelectAll();
+        return userList;
+    }
+
 
 
 

@@ -5,6 +5,8 @@ import com.bigzheng.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -40,4 +42,10 @@ public class UserServiceImpl implements UserService {
 //    public Integer insertPhoto(User s){
 //        return userMapper.insertPhoto(s);
 //    }
+
+
+    @Override
+    public List<User> backstageSelectAll() {
+        return userMapper.backstageSelectAll();
+    }
 }

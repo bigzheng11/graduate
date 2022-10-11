@@ -1,10 +1,8 @@
 package com.bigzheng.mapper;
 
+import com.bigzheng.entity.Address;
 import com.bigzheng.entity.Goods;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,12 +26,28 @@ public interface GoodsMapper{
     List<Goods> getRecommendGoods(Goods goodsParameter);
 
     //新建订单模板
-    @Insert("insert into goods values (null,#{userID}")
-    @Options(useGeneratedKeys = true,keyProperty = "goodsID")
-    String addGoodsModel(Long userID);
+//    @Options(useGeneratedKeys = true,keyProperty = "goodsID")
+    @Insert("insert into goods values (null,#{userID},null,null,null,null,null,0,1,null )")
+    int addGoodsModel(Long userID);
 
     //查询刚增加的goodsID
-    @Select("SELECT goodsID from goods  ORDER BY goodsID    desc LIMIT 1")
+    @Select("SELECT goodsID from goods  ORDER BY goodsID  desc LIMIT 1")
     String selectNewId();
+
+    //「更新」更新模板订单
+    @Update("update goods set goodsName = #{goodsName},goodsDescribe = #{goodsDescribe},goodsClassify = #{goodsClassify},price = #{price} where goodsID=#{goodsID}")
+    int updataModel(Goods goods);
+
+    // 「☢ -后台」查询所有商品
+    @Select("SELECT * from `goods`")
+     List<Goods> backstageSelectAll();
+
+    // 「☢ -后台」根据goodsID删除商品
+    @Update("update goods set deleteTag = 0 where goodsID=#{goodsID}")
+    int backstageDeleteById(Long goodsID) ;
+
+    // 「☢ -后台」根据goodsID更新商品信息
+    @Update("update goods set goodsName=#{goodsName},goodsDescribe=#{goodsDescribe},goodsClassify=#{goodsClassify},price=#{price}, deleteTag = #{deleteTag} where goodsID=#{goodsID}")
+    int backstageUpdataById(Goods goods);
 
 }

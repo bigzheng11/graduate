@@ -2,10 +2,8 @@ package com.bigzheng.controller;
 import com.bigzheng.entity.*;
 import com.bigzheng.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -65,13 +63,52 @@ public class GoodsController {
     //新建订单模板
     @GetMapping("/addmodel/{userID}")
     public String addGoodsModel(@PathVariable Long userID){
-
-        String test=goodsService.selectNewId();
-        System.out.println(test);
-        return test;
+        //新建模板表
+        int num=goodsService.addGoodsModel(userID);
+        if (num==1){
+            //查询新建模板表的goodsID
+            String goodsIDNew=goodsService.selectNewId();
+            return goodsIDNew;
+        }else {
+            return "更新失败";
+        }
     }
 
+    //更新模板
+    @PostMapping("/updatamodel")
+    public String updataModel(Goods goods){
+        int result=goodsService.updataModel(goods);
+        System.out.println("======================");
+        System.out.println(result);
+        System.out.println("======================");
+        return "成功";
+    }
 
+    // 「☢ -后台」查询所有商品
+    @GetMapping("/backstageselectall")
+    public List<Goods> backstageSelectAll() {
+        List<Goods> goodsList = goodsService.backstageSelectAll();
+        return goodsList;
+    }
 
+    // 「☢ -后台」根据goodsID修改deleteTag为0
+    @GetMapping("/backstageDeleteById/{goodsID}")
+    public int backstageDeleteById(@PathVariable Long goodsID) {
+        int i  = goodsService.backstageDeleteById(goodsID);
+        return i;
+    }
+
+    // 「☢ -后台」根据goodsID更新商品信息
+    @PostMapping("/backstageUpdataById")
+    public int backstageUpdataById(@RequestBody Goods goods) {
+        System.out.println("=================接收到的参数===============");
+        System.out.println(goods);
+        System.out.println("================接收到的参数================");
+        int i  = goodsService.backstageUpdataById(goods);
+        System.out.println("=================更新===============");
+        System.out.println(i);
+        System.out.println("================更新================");
+        return i;
+    }
 
 }

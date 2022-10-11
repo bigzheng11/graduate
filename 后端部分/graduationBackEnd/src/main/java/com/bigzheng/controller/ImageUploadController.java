@@ -1,4 +1,6 @@
 package com.bigzheng.controller;
+import com.bigzheng.entity.Picture;
+import com.bigzheng.service.PictureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -8,12 +10,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
-
 /**
  * 图片上传Controller
  */
 @Controller
 public class ImageUploadController {
+    @Autowired
+    private PictureService pictureService;
 
     @Value("${tencent.path}")
     private String IMAGE_PATH;
@@ -26,10 +29,10 @@ public class ImageUploadController {
      */
     @RequestMapping("/upload")
     @ResponseBody
-    public String upload(MultipartFile multipartFile,String username) throws Exception {
+    public String upload(MultipartFile multipartFile,Long goodsID) throws Exception {
         System.out.println("======================================");
         System.out.println("传入文件:"+multipartFile);
-        System.out.println("username:"+username);
+        System.out.println("goodsID:"+goodsID);
 //        System.out.println("model:"+model);
         System.out.println("======================================");
 
@@ -66,7 +69,8 @@ public class ImageUploadController {
         System.out.println("调用腾讯云工具上传文件:"+imageName);
         System.out.println("======================================");
         System.out.println("最终的路径");
-        System.out.println("https://testdemo01-1307738235.cos.ap-nanjing.myqcloud.com/"+imageName);
+        String picUrl="https://testdemo01-1307738235.cos.ap-nanjing.myqcloud.com/"+imageName;
+        System.out.println(picUrl);
 
         //程序结束时，删除临时文件
         deleteFile(excelFile);
@@ -74,8 +78,13 @@ public class ImageUploadController {
         //存入图片名称，用于网页显示
 //        model.addAttribute("imageName", imageName);
 
-        //更新数据库
-//        userInfoService.updateUserAvatar(imageName, username);
+        /*
+        更新数据库
+        * */
+        Picture picture=new Picture();
+        picture.setGoodsID(goodsID);
+        picture.setPicture(picUrl);
+        pictureService.addPicture(picture);
 
         //返回成功信息
 //        return new ForumResult(200, "头像更换成功", imageName);

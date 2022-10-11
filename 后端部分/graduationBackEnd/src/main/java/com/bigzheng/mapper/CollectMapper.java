@@ -13,7 +13,7 @@ public interface CollectMapper {
     List<Collect> getAllCollect(Long userID);
 
     //「添加」 根据传入对象添加收藏
-    @Insert("insert into collect values (null ,#{userID},#{goodID},1)")
+    @Insert("insert into collect values (null ,#{userID},#{goodsID},1)")
     @Options(useGeneratedKeys = true,keyProperty = "collectID")
     int addCollect(Collect collect);
 

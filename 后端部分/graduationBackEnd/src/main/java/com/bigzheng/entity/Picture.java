@@ -7,7 +7,7 @@ import lombok.*;
 @ToString
 public class Picture {
     private Long picID;
-    private Long goodID;
+    private Long goodsID;
     private String picture;
 }
 

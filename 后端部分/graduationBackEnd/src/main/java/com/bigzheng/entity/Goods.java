@@ -16,12 +16,16 @@ public class Goods {
     private Integer goodsClassify;
     private Long picID;
     private Long videoID;
+    private int price;
+    private int deleteTag;
+    private int isSell;
+
+
     //一对多:一个商品对应的多个图片
     private List<Picture> picList=new ArrayList<>();
     private Video video;
     private User user;
     private int n;
-    private int price;
     private List<Message> messagesList=new ArrayList<>();
 
 }

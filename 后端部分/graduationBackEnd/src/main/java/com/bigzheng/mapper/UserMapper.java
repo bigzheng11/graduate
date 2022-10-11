@@ -6,6 +6,9 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 @Mapper
 @Repository
@@ -21,4 +24,8 @@ public interface UserMapper {
     //「更新」根据user更新用户信息
     @Update("update `user` set password=#{password},userName=#{userName},userImg=#{userImg} where userID=#{userID}")
     public int updateUser(User user);
+
+    // 「☢ -后台」查询所有用户
+    @Select("SELECT * from `user`")
+    List<User> backstageSelectAll();
 }
