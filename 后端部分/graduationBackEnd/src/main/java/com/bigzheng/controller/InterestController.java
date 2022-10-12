@@ -29,6 +29,9 @@ public class InterestController {
     public List<Goods>  topSixInterest(@PathVariable Long userID){
         //获取用户兴趣列表
         List<Interest> interestList=interestService.topSixInterest(userID);
+        System.out.println("======================================");
+        System.out.println("获得的兴趣列表"+interestList);
+        System.out.println("======================================");
         //计算总分
         int totalScore=0;
         for (int i = 0; i < interestList.size(); i++) {

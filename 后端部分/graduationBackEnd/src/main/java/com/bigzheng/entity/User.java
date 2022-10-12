@@ -12,4 +12,5 @@ public class User {
     private String userName;  //用户名
     private Integer userSex;  //性别
     private String userImg;   //用户头像
+    private int deleteTag;   //删除标识
 }

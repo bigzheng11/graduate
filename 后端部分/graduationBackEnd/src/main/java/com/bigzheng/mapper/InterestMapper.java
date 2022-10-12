@@ -14,7 +14,7 @@ import java.util.List;
 public interface InterestMapper {
 
     //获取最喜欢的前8个类型,分数从大到小排列
-    @Select("select goodsClassify,grade,interestID from interest where userID=#{userID} order by grade desc LIMIT  6")
+    @Select("select goodsClassify,grade,interestID from interest where userID=#{userID} order by grade desc LIMIT  10")
     List<Interest> topSixInterest(Long userID);
 
     //「更新」激励加分-根据userID和goodsClassify,对grade更新

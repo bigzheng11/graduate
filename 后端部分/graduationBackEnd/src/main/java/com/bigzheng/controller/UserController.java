@@ -2,6 +2,7 @@ package com.bigzheng.controller;
 
 import com.bigzheng.common.R;
 import com.bigzheng.common.ResultCode;
+import com.bigzheng.entity.Goods;
 import com.bigzheng.entity.User;
 import com.bigzheng.service.UserService;
 import com.qcloud.cos.COSClient;
@@ -97,6 +98,12 @@ public class UserController {
         return userList;
     }
 
+    // 「☢ -后台」更新信息
+    @PostMapping("/backstageupdatabyid")
+    public int backstageUpdataById(@RequestBody User user) {
+        int i  = userService.backstageUpdataById(user);
+        return i;
+    }
 
 
 

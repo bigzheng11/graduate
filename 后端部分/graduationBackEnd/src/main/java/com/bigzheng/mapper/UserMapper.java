@@ -28,4 +28,9 @@ public interface UserMapper {
     // 「☢ -后台」查询所有用户
     @Select("SELECT * from `user`")
     List<User> backstageSelectAll();
+
+    // 「☢ -后台」更新信息
+    @Update("update `user` set userName=#{userName},deleteTag=#{deleteTag} where userID=#{userID}")
+    int backstageUpdataById(User user);
+
 }

@@ -43,9 +43,13 @@ public class UserServiceImpl implements UserService {
 //        return userMapper.insertPhoto(s);
 //    }
 
-
     @Override
     public List<User> backstageSelectAll() {
         return userMapper.backstageSelectAll();
+    }
+
+    @Override
+    public int backstageUpdataById(User user) {
+        return userMapper.backstageUpdataById(user);
     }
 }

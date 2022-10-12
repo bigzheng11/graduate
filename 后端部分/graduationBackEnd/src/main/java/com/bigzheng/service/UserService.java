@@ -22,4 +22,7 @@ public interface UserService {
     // 「☢ -后台」查询所有用户
     List<User> backstageSelectAll();
 
+    // 「☢ -后台」更新信息
+    int backstageUpdataById(User user);
+
 }
