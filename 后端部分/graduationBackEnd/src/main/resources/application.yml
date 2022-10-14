@@ -16,6 +16,12 @@ spring:
       suffix: .jsp   #Springboot 支持JSP ,配置JSP的视图解析器 后缀
   banner:
     location: static/banner.txt
+  servlet:
+    multipart:
+      max-file-size: 300MB
+      max-request-size: 500MB
+
+
 
 
   # 腾讯云地址

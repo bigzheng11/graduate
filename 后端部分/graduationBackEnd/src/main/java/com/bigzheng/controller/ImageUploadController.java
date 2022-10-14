@@ -4,9 +4,7 @@ import com.bigzheng.service.PictureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
@@ -14,6 +12,7 @@ import java.io.File;
  * 图片上传Controller
  */
 @Controller
+@RequestMapping("/picture")
 public class ImageUploadController {
     @Autowired
     private PictureService pictureService;
@@ -21,11 +20,8 @@ public class ImageUploadController {
     @Value("${tencent.path}")
     private String IMAGE_PATH;
 
-//    @Autowired
-//    private UserInfoService userInfoService;
-
     /**
-     * 上传头像
+     * 上传图片
      */
     @RequestMapping("/upload")
     @ResponseBody
@@ -52,7 +48,7 @@ public class ImageUploadController {
         String prefix = fileName.substring(fileName.lastIndexOf("."));
 
         //如果不是图片
-        if (!prefix.equalsIgnoreCase(".jpg") && !prefix.equalsIgnoreCase(".jpeg") && !prefix.equalsIgnoreCase(".svg") && !prefix.equalsIgnoreCase(".gif") && !prefix.equalsIgnoreCase(".png")) {
+        if (!prefix.equalsIgnoreCase(".jpg") && !prefix.equalsIgnoreCase(".jpeg") && !prefix.equalsIgnoreCase(".svg") && !prefix.equalsIgnoreCase(".gif") && !prefix.equalsIgnoreCase(".png")&& !prefix.equalsIgnoreCase(".mp4")) {
 //            return new ForumResult(500, "上传图片格式不正确", null);
             return "上传图片格式不正确";
         }

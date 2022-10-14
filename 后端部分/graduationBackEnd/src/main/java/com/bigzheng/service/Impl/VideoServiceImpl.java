@@ -22,4 +22,9 @@ public class VideoServiceImpl implements VideoService {
     public Video getAllvideo(Long goodsID) {
         return videomapper.getAllvideo(goodsID);
     }
+
+    @Override
+    public int addVideo(Video video) {
+        return videomapper.addVideo(video);
+    }
 }
