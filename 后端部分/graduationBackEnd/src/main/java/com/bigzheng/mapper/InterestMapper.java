@@ -1,12 +1,9 @@
 package com.bigzheng.mapper;
-import com.bigzheng.common.R;
 import com.bigzheng.entity.Interest;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.PostMapping;
-
 import java.util.List;
 
 @Mapper

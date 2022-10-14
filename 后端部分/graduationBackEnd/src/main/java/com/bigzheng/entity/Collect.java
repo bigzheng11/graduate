@@ -1,5 +1,4 @@
 package com.bigzheng.entity;
-
 import lombok.*;
 
 @Getter
@@ -12,4 +11,5 @@ public class Collect {
     private Long userID;
     private Long goodsID;
     private Integer isCollect;
+    private Goods goods;
 }

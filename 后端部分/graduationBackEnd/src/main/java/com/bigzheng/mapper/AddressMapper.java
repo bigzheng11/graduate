@@ -1,10 +1,7 @@
 package com.bigzheng.mapper;
-
-
 import com.bigzheng.entity.Address;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Mapper
@@ -16,11 +13,11 @@ public interface AddressMapper {
      List<Address> getAllAddress(Long userID);
 
     //「更新」根据addressID修改收货地址
-    @Update("update address set address = #{address} where addressID=#{addressID}")
+    @Update("update `address` set phone = #{phone},adName = #{adName},provinceCity = #{provinceCity},addressDetail = #{addressDetail},isDefault = #{isDefault} where addressID=#{addressID}")
     int updateAddress(Address address);
 
     //「增加」根据userID新增收货地址
-    @Insert("insert into address values (null ,#{userID},#{address})")
+    @Insert("insert into `address` values (null ,#{userID},#{phone},#{adName},#{provinceCity},#{addressDetail},#{isDefault})")
     @Options(useGeneratedKeys = true,keyProperty = "addressID")
     int addAddress(Address address) ;
 }
