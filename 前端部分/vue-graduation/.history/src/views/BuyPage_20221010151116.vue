@@ -18,6 +18,7 @@
          @close="close"
          >!!!!!恭喜你购买成功!!!!!!</van-popup
       >
+
       <van-button type="primary" @click="show = !show">确认购买</van-button>
    </div>
 </template>
@@ -28,11 +29,7 @@ import Back from "../components/Back.vue";
 import { Toast } from "vant";
 export default {
    data() {
-      return { 
-         show: false,
-         goodsID: this.$route.query.goodsID,
-
-      };
+      return { show: false };
    },
 
    created() {},
@@ -41,9 +38,9 @@ export default {
       close() {
          console.log("跳转回首页");
          Toast("购买成功,跳转回首页");
-         // setTimeout(() => { 
-         //     this.$router.push("/video")
-         //    },1200)
+         setTimeout(() => { 
+             this.$router.push("/video")
+            },1200)
       },
    },
 

@@ -32,7 +32,7 @@
          <h5
             style="
                margin-top: 2%;
-               font-size: 13px;
+               font-size: 15px;
                font-weight: 200;
                color: gray;
             "
@@ -55,9 +55,9 @@ export default {
 
    mounted() {
       console.log("跳转回首页");
-      setTimeout(() => {
-         this.$router.push("/video");
-      }, 1200);
+      // setTimeout(() => {
+      //    this.$router.push("/video");
+      // }, 1200);
    },
 };
 </script>
@@ -67,6 +67,7 @@ export default {
    width: 100%;
    height: 100%;
    overflow: auto;
+   border: 1px solid palegreen;
    box-sizing: border-box;
 }
 </style>

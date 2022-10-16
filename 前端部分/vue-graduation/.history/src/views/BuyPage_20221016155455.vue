@@ -28,8 +28,7 @@ import Back from "../components/Back.vue";
 import { Toast } from "vant";
 export default {
    data() {
-      return { 
-         show: false,
+      return { show: false
          goodsID: this.$route.query.goodsID,
 
       };

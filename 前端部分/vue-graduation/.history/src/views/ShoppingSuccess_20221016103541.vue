@@ -55,9 +55,9 @@ export default {
 
    mounted() {
       console.log("跳转回首页");
-      setTimeout(() => {
-         this.$router.push("/video");
-      }, 1200);
+      // setTimeout(() => {
+      //    this.$router.push("/video");
+      // }, 1200);
    },
 };
 </script>

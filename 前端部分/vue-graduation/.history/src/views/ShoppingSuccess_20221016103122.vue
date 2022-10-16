@@ -1,14 +1,7 @@
 <template>
    <div class="container">
-      <div
-         style="
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-         "
-      >
-         <div style="margin-top: 20%">
+      <div style="display:flex;justify-">
+         <div>
             <svg
                t="1665887161790"
                class="icon"
@@ -26,19 +19,8 @@
                ></path>
             </svg>
          </div>
-         <p style="margin-top: 7%; font-size: 25px; font-weight: 500">
-            上传成功
-         </p>
-         <h5
-            style="
-               margin-top: 2%;
-               font-size: 13px;
-               font-weight: 200;
-               color: gray;
-            "
-         >
-            稍后将跳转回首页
-         </h5>
+         <h2>上传成功</h2>
+         <h5>稍后将跳转回首页</h5>
       </div>
    </div>
 </template>
@@ -55,9 +37,9 @@ export default {
 
    mounted() {
       console.log("跳转回首页");
-      setTimeout(() => {
-         this.$router.push("/video");
-      }, 1200);
+      // setTimeout(() => {
+      //    this.$router.push("/video");
+      // }, 1200);
    },
 };
 </script>
@@ -67,7 +49,10 @@ export default {
    width: 100%;
    height: 100%;
    overflow: auto;
+   border: 1px solid palegreen;
    box-sizing: border-box;
+   justify-content: center;
+   
 }
 </style>
  
