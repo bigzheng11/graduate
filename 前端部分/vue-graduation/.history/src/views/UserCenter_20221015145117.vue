@@ -264,10 +264,10 @@
             <!-- 购买数量 -->
             <span style="position: absolute; top: 50px; right: 20px">
                购买数量:
-                  <strong style="color:red">
+               <p style="color">
 
-                     {{ item.quantity }}
-                  </strong>
+                  {{ item.quantity }}
+               </p>
             </span>
             <!-- 购买时间 -->
             <div

@@ -23,9 +23,11 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-    public List<Goods> getRecommendGoods(Goods goodsParameter) {
-        return goodsMapper.getRecommendGoods(goodsParameter);
+    public List<Goods> getRecommendGoods(Goods goods) {
+        return goodsMapper.getRecommendGoods(goods);
     }
+
+
 
     @Override
     public int addGoodsModel(Long userID) {

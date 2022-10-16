@@ -263,11 +263,7 @@
             </span>
             <!-- 购买数量 -->
             <span style="position: absolute; top: 50px; right: 20px">
-               购买数量:
-                  <strong style="color:red">
-
-                     {{ item.quantity }}
-                  </strong>
+               实际付款数量:{{ item.quantity }}
             </span>
             <!-- 购买时间 -->
             <div
@@ -506,10 +502,12 @@ export default {
       deleteUser() {
          if (confirm("确定要注销吗")) {
             // localStorage.clear();
-            sessionStorage.clear();
+            // sessionStorage.clear();
 
-
+            
             this.$router.go(0);
+
+
             alert("用户已经注销");
          } else {
             return;

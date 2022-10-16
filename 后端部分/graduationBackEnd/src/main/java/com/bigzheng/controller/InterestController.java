@@ -47,6 +47,7 @@ public class InterestController {
             Goods goodsParameter=new Goods();
             goodsParameter.setGoodsClassify(interestList.get(i).getGoodsClassify());
             goodsParameter.setN(n);
+            goodsParameter.setLoginUserID(userID);
             List<Goods> RecommendGoodsListTemp= goodsService.getRecommendGoods(goodsParameter);
             //商品添加图片和视频
             for (int j = 0; j < RecommendGoodsListTemp.size(); j++) {

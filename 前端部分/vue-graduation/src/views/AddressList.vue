@@ -33,8 +33,6 @@
                <i class="el-icon-delete" @click="open(item.daId)"></i>
             </div>
          </li>
-
-
          <!-- 新增地址部分 -->
          <li>
             <div class="addbtn" @click="toAddUserAddress">
@@ -74,9 +72,6 @@
                @locationSuccess="locationSuccess"
             ></bm-geolocation>
          </baidu-map>
-
-        
-
          <!-- 底部菜单部分 -->
          <Footer></Footer>
       </div>

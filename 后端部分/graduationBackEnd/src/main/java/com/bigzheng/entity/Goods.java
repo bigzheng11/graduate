@@ -28,4 +28,8 @@ public class Goods {
     private int n;
     private List<Message> messagesList=new ArrayList<>();
 
+    //推送时,排除掉登录用户的自己的userID
+    private Long loginUserID;
+
+
 }

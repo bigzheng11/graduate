@@ -31,12 +31,13 @@
 export default {
    data() {
       return {
-         footerColor: "white",
+         footerColor: "WHITE",
          tert: "black",
       };
    },
 
-   created() {},
+   created() {
+   },
 
    methods: {
       toIndex() {
@@ -76,7 +77,7 @@ export default {
          console.log("当前路径为", r.path);
          // 将信息存入vuex中
          if (r.path === "/video") {
-            this.footerColor = "black";
+           this.footerColor = "black";
          } else {
             this.footerColor = "white";
          }

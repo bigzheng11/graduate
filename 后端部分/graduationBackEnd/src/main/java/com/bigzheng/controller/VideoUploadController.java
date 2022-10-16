@@ -1,10 +1,7 @@
 package com.bigzheng.controller;
-import com.bigzheng.entity.Picture;
 import com.bigzheng.entity.Video;
-import com.bigzheng.service.PictureService;
 import com.bigzheng.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,16 +16,12 @@ public class VideoUploadController {
     @Autowired
     private VideoService videoService;
 
-//    @Value("${tencent.path}")
-//    private String IMAGE_PATH;
-
     @RequestMapping("/upload")
     @ResponseBody
     public String upload(MultipartFile multipartFile,Long goodsID) throws Exception {
         System.out.println("======================================");
         System.out.println("传入文件:"+multipartFile);
         System.out.println("goodsID:"+goodsID);
-//        System.out.println("model:"+model);
         System.out.println("======================================");
 
         //获取文件的名称
@@ -80,7 +73,6 @@ public class VideoUploadController {
         video.setGoodsID(goodsID);
         video.setVideo(videoUrl);
         videoService.addVideo(video);
-
         //返回成功信息
 //        return new ForumResult(200, "头像更换成功", imageName);
         return videoName;

@@ -17,7 +17,7 @@ public interface GoodsService {
     List<Goods> getAllGoods(Long userID);
 
     //根据userID获取用户所有商品
-    List<Goods> getRecommendGoods(Goods goodsParameter);
+    List<Goods> getRecommendGoods(Goods goods);
 
     //新建订单模板
     int addGoodsModel(Long userID);

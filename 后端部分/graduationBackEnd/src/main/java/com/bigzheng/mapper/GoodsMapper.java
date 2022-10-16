@@ -22,8 +22,8 @@ public interface GoodsMapper{
     List<Goods> getAllGoods(Long userID);
 
     //根据「分类」获得 n 个goods
-    @Select("SELECT * from goods where goodsClassify = #{goodsClassify}  LIMIT  #{n}")
-    List<Goods> getRecommendGoods(Goods goodsParameter);
+    @Select("SELECT * from goods where goodsClassify = #{goodsClassify} and userID!=#{loginUserID} LIMIT  #{n}")
+    List<Goods> getRecommendGoods(Goods goods);
 
     //新建订单模板
 //    @Options(useGeneratedKeys = true,keyProperty = "goodsID")
